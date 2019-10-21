@@ -1,9 +1,7 @@
-﻿using DevExpress.Skins;
+﻿using DevExpress.LookAndFeel;
+using DevExpress.Skins;
 using System;
-using System.Collections.Generic;
 using System.Windows.Forms;
-using DevExpress.LookAndFeel;
-using DevExpress.UserSkins;
 
 namespace DisabledCells {
     static class Program {
@@ -18,7 +16,7 @@ namespace DisabledCells {
             
             SkinManager.EnableFormSkins();
             UserLookAndFeel.Default.SetSkinStyle("DevExpress Style");
-            Application.Run(new Form1());
+            Application.Run(new MainForm());
         }
     }
 }
