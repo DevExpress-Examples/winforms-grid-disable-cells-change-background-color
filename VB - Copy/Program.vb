@@ -1,5 +1,9 @@
-﻿Imports DevExpress.LookAndFeel
-Imports DevExpress.Skins
+﻿Imports DevExpress.Skins
+Imports System
+Imports System.Collections.Generic
+Imports System.Windows.Forms
+Imports DevExpress.LookAndFeel
+Imports DevExpress.UserSkins
 
 Namespace DisabledCells
     Friend NotInheritable Class Program
@@ -18,7 +22,7 @@ Namespace DisabledCells
 
             SkinManager.EnableFormSkins()
             UserLookAndFeel.Default.SetSkinStyle("DevExpress Style")
-            Application.Run(New MainForm())
+            Application.Run(New Form1())
         End Sub
     End Class
 End Namespace
