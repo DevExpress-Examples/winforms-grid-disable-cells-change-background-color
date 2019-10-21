@@ -1,5 +1,5 @@
 ﻿namespace DisabledCells {
-    partial class Form1 {
+    partial class MainForm {
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -24,6 +24,7 @@
         /// </summary>
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
+            DevExpress.Utils.AppearanceObject appearanceObject1 = new DevExpress.Utils.AppearanceObject();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.dataSet1 = new System.Data.DataSet();
@@ -36,11 +37,14 @@
             this.colShipCountry = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colIsFreeShipping = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.behaviorManager1 = new DevExpress.Utils.Behaviors.BehaviorManager(this.components);
+            this.disabledCellEvents1 = new DevExpress.Utils.Behaviors.Common.DisabledCellEvents(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).BeginInit();
             this.SuspendLayout();
             // 
             // gridControl1
@@ -52,7 +56,7 @@
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Margin = new System.Windows.Forms.Padding(2);
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(425, 286);
+            this.gridControl1.Size = new System.Drawing.Size(605, 286);
             this.gridControl1.TabIndex = 0;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -91,6 +95,8 @@
             // 
             // gridView1
             // 
+            this.behaviorManager1.SetBehaviors(this.gridView1, new DevExpress.Utils.Behaviors.Behavior[] {
+            ((DevExpress.Utils.Behaviors.Behavior)(DevExpress.Utils.Behaviors.Common.DisabledCellBehavior.Create(typeof(DevExpress.XtraGrid.Extensions.GridViewDisabledCellSource), "[ShipCountry] = \'US\' Or [ShipCountry] = \'Canada\'", appearanceObject1, this.disabledCellEvents1)))});
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colOrderItem,
             this.colShipCountry,
@@ -99,8 +105,6 @@
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
-            this.gridView1.RowCellStyle += new DevExpress.XtraGrid.Views.Grid.RowCellStyleEventHandler(this.gridView1_RowCellStyle);
-            this.gridView1.ShowingEditor += new System.ComponentModel.CancelEventHandler(this.gridView1_ShowingEditor);
             // 
             // colOrderItem
             // 
@@ -118,7 +122,7 @@
             // 
             // colIsFreeShipping
             // 
-            this.colIsFreeShipping.Caption = "RowCellStyle";
+            this.colIsFreeShipping.Caption = "Disabled using an event";
             this.colIsFreeShipping.FieldName = "IsFreeShipping";
             this.colIsFreeShipping.Name = "colIsFreeShipping";
             this.colIsFreeShipping.Visible = true;
@@ -126,22 +130,26 @@
             // 
             // gridColumn1
             // 
-            this.gridColumn1.Caption = "CustomDraw";
-            this.gridColumn1.FieldName = "gridColumn1";
+            this.gridColumn1.Caption = "Disabled using an Expression";
+            this.gridColumn1.FieldName = "Unbound";
             this.gridColumn1.Name = "gridColumn1";
             this.gridColumn1.UnboundExpression = "[IsFreeShipping]";
             this.gridColumn1.UnboundType = DevExpress.Data.UnboundColumnType.Boolean;
             this.gridColumn1.Visible = true;
             this.gridColumn1.VisibleIndex = 3;
             // 
-            // Form1
+            // disabledCellEvents1
+            // 
+            this.disabledCellEvents1.ProcessingCell += new System.EventHandler<DevExpress.Utils.Behaviors.Common.ProcessCellEventArgs>(this.disabledCellEvents1_ProcessingCell);
+            // 
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(425, 286);
+            this.ClientSize = new System.Drawing.Size(605, 286);
             this.Controls.Add(this.gridControl1);
             this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "Form1";
+            this.Name = "MainForm";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
@@ -149,6 +157,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataTable1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -167,6 +176,8 @@
         private DevExpress.XtraGrid.Columns.GridColumn colShipCountry;
         private DevExpress.XtraGrid.Columns.GridColumn colIsFreeShipping;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
+        private DevExpress.Utils.Behaviors.BehaviorManager behaviorManager1;
+        private DevExpress.Utils.Behaviors.Common.DisabledCellEvents disabledCellEvents1;
     }
 }
 
