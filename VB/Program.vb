@@ -1,24 +1,22 @@
-﻿Imports DevExpress.LookAndFeel
+Imports DevExpress.LookAndFeel
 Imports DevExpress.Skins
+Imports System
+Imports System.Windows.Forms
 
 Namespace DisabledCells
-    Friend NotInheritable Class Program
 
-        Private Sub New()
-        End Sub
+    Friend Module Program
 
         ''' <summary>
         ''' The main entry point for the application.
         ''' </summary>
-        <STAThread> _
-        Shared Sub Main()
-
-            Application.EnableVisualStyles()
+        <STAThread>
+        Sub Main()
+            Call Application.EnableVisualStyles()
             Application.SetCompatibleTextRenderingDefault(False)
-
-            SkinManager.EnableFormSkins()
+            Call SkinManager.EnableFormSkins()
             UserLookAndFeel.Default.SetSkinStyle("DevExpress Style")
-            Application.Run(New MainForm())
+            Call Application.Run(New MainForm())
         End Sub
-    End Class
+    End Module
 End Namespace
