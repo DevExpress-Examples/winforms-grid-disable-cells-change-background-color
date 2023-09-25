@@ -7,7 +7,7 @@
 <!-- default file list end -->
 # WinForms Data Grid - How to make a data cell read-only and customize its appearance
 
-This example uses the [Disabled Cell Behavior](https://docs.devexpress.com/WindowsForms/401146/common-features/behaviors/disabled-cell-behavior) to disable editing of a grid column based on a value in another column. A disabled cell's appearance is changed to indicate that the cell's value in read-only and can not be changed by users.
+This example uses the [Disabled Cell Behavior](https://docs.devexpress.com/WindowsForms/401146/common-features/behaviors/disabled-cell-behavior) to disable editing of a grid column based on a value in another column. A disabled cell's appearance is changed to indicate that the cell's value is read-only and cannot be changed by users.
 
 ## Files to Review
 
